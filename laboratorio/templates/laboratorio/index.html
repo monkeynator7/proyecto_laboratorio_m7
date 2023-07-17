@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+    {% bootstrap_messages %} {% load static %}
+    <title>Laboratorios</title>
+</head>
+
+<body>
+
+    {% block content %}
+    <h2 class="text-center pt-3">Información de los Laboratorios</h2>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Ciudad</th>
+                    <th>Pais</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for lab in laboratorios %}
+                <tr>
+                    <td>{{lab.nombre}}</td>
+                    <td>{{lab.ciudad}}</td>
+                    <td>{{lab.pais}}</td>
+                    <td><a class="fst-italic text-decoration-none text-success"
+                            href=" {% url 'update' lab.id %} ">Actualizar</a></td>
+                    <td><a class="fst-italic text-decoration-none text-danger"
+                            href=" {% url 'eliminar_lab' lab.id %} ">Eliminar</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="alert alert-success m-3" role="alert">
+        <p>¿Información de los Laboratorios?</p>
+        <p> <a class="text-decoration-none text-dark" href="/laboratorio/"><br>Ir a la página de Inicio --><a></a></p>
+        <p> <a  class="text-dark" href="/laboratorio/insertar">Insertar Laboratorio Nuevo</a></p>
+    </div>
+    {% endblock content %}
+
+    {% block contador %}
+    <div class="container m-1">
+        <p class="text-decoration-underline">Usted ha vistitado esta página {{num_visits}} veces.</p>
+
+    </div>
+    {% endblock contador %}
+
+
+
+</body>
+
+</html>

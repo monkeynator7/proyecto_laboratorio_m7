@@ -1,0 +1,26 @@
+{% extends 'laboratorio/index.html' %}
+
+
+{% block content %}
+<div class="container">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <br><br>
+        <div class="alert alert-danger" role="alert">
+            Estas seguro que deseas eliminar al laboratorio "{{laboratorio.nombre}}"?
+        </div>
+        <p>
+            <input class="btn btn-danger" type="submit" value="Confirm">
+        </p>
+        <p>
+            <button type="button" class="btn btn-success"><a class="link-light" href="{% url 'mostrar_laboratorio' %}"><-- Retornar</a></button>
+        </p>
+    </form>
+</div>
+{% endblock content %}
+
+{% block contador %}
+    
+{% endblock contador %}
+    
+    
