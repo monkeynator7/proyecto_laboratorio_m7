@@ -11,7 +11,7 @@ def year_actual():
 
 class Laboratorio(models.Model):
     id = models.AutoField(primary_key=True)
-    nombre = models.CharField(verbose_name='Laboratorio')
+    nombre = models.CharField(verbose_name='Nombre')
     ciudad = models.CharField(verbose_name='Ciudad', default='sin especificar')
     pais = models.CharField(verbose_name='Pais', default='sin especificar')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de Creación')
